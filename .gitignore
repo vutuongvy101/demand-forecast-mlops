@@ -1,0 +1,37 @@
+# Data and artifacts
+data/
+mlruns/
+artifacts/
+outputs/
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+
+# MLflow / Airflow
+airflow.db
+airflow.cfg
+logs/
+standalone_admin_password.txt
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.ruff_cache/

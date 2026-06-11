@@ -1,0 +1,57 @@
+dataset:
+  store_id: CA_1
+  category: FOODS
+  n_series: 200
+  random_seed: 42
+
+forecast:
+  horizon: 28
+  freq: D
+
+backtest:
+  folds:
+    - train_end: d1885
+      test_start: d1886
+      test_end: d1913
+    - train_end: d1913
+      test_start: d1914
+      test_end: d1941
+    - train_end: d1941
+      test_start: d1942
+      test_end: d1969
+
+features:
+  lags: [28, 35, 42]
+  rolling_windows: [7, 28]
+  min_lag: 28  # >= horizon: direct strategy, leakage-safe by construction
+
+models:
+  seasonal_naive:
+    season_length: 7
+  lgbm:
+    n_estimators: 200
+    learning_rate: 0.05
+    max_depth: 8
+    num_leaves: 63
+    subsample: 0.8
+    colsample_bytree: 0.8
+
+drift:
+  psi_warn: 0.2
+  psi_flag: 0.25
+  performance_ratio_flag: 1.25
+  top_features: 5
+
+mlflow:
+  experiment_name: demand-forecast
+  tracking_uri: mlruns
+
+quality_gate:
+  max_rmsse_regression_pct: 10.0
+
+paths:
+  data_dir: data
+  raw_dir: data/raw
+  processed_dir: data/processed
+  models_dir: data/models
+  reports_dir: data/reports
