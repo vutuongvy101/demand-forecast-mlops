@@ -12,6 +12,10 @@ This is intentionally compact: the full pipeline runs on a laptop in seconds, an
 all modeling logic lives in `src/forecast/`. The notebook is exploratory only and
 imports reusable code from the package.
 
+## Demo
+
+![Demand Forecast MLOps dashboard demo](demo/demo.gif)
+
 ## Business Context
 
 Retail teams need reliable short-term forecasts to decide how much inventory to
